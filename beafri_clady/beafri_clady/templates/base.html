@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Beafri Clady{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{% static 'js/base.js' %}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.4/dist/heroicons.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a href="{% url 'home' %}" class="home-link"><i class="fas fa-home"></i></a>
+        <ul>
+            <li><a href="{% url 'product_list' %}">Products</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'cart_detail' %}">Cart</a></li>
+                <li><a href="{% url 'order_confirmation' %}">Orders</a></li>
+                <li><a href="{% url 'review_list' %}">Reviews</a></li>
+            {% endif %}
+        </ul>
+        <div class="auth-links">
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </div>
+    <div id="main-content" class="main-content">
+        <button id="sidebar-toggle-btn" class="open-btn" onclick="toggleSidebar()">
+            <img src="{% static 'images/bar.png' %}" alt="Menu Icon">
+        </button>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}Home - Beafri Clady{% endblock %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<section class="hero-section" style="background: url('{% static 'images/beafri.jpg' %}') no-repeat center center/cover;">
+    <div class="hero-content">
+        <h1>Welcome to Beafri Clady</h1>
+        <p>Your ultimate destination for trendy shoes, stylish clothes, and the latest fashion.</p>
+        <a href="{% url 'product_list' %}" class="btn btn-primary">Explore Now</a>
+    </div>
+</section>
+
+<section class="featured-products">
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="{% static 'images/sneakers.jpg' %}" alt="Product">
+                <h3>Stylish Sneakers</h3>
+                <p class="price">$49.99</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+            <div class="product-item">
+                <img src="{% static 'images/dress.jpg' %}" alt="Product">
+                <h3>Elegant Dress</h3>
+                <p class="price">$89.99</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+            <div class="product-item">
+                <img src="{% static 'images/shirt.jpg' %}" alt="Product">
+                <h3>Classic Shirt</h3>
+                <p class="price">$39.99</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter-section">
+    <div class="container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with the latest trends, promotions, and exclusive offers!</p>
+        <form action="#" method="post" class="newsletter-form">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
