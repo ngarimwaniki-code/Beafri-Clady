@@ -30,3 +30,20 @@ window.onclick = function(event) {
         });
     }
 }
+
+function adjustSidebarHeight() {
+    const sidebarContent = document.getElementById('sidebar-content');
+    const authLinks = document.querySelector('.auth-links');
+    const sidebar = document.querySelector('.sidebar');
+
+    const authLinksHeight = authLinks.offsetHeight;
+    const sidebarHeight = window.innerHeight;
+
+    sidebarContent.style.height = `${sidebarHeight - authLinksHeight - 60}px`; 
+    sidebarContent.style.overflowY = 'auto';
+}
+
+window.addEventListener('resize', adjustSidebarHeight);
+window.addEventListener('load', adjustSidebarHeight);
+document.addEventListener('DOMContentLoaded', adjustSidebarHeight);
+

@@ -9,28 +9,100 @@
     <script src="{% static 'js/base.js' %}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.4/dist/heroicons.min.css" rel="stylesheet">
-    
 </head>
 <body>
+    <header id="header" class="header">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" class="home-link"><i class="fas fa-home"></i></a></li>
+                {% if user.is_authenticated %}
+                    <li class="profile-link" style="margin-left: auto;">
+                        <a href="{% url 'profile' %}">
+                            <div class="profile-info">
+                                <div class="profile-pic {% if profile.profile_picture %}has-picture{% else %}no-picture{% endif %}">
+                                    {% if profile.profile_picture %}
+                                        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+                                    {% else %}
+                                        <i class="fas fa-user"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="profile-name">
+                                    {{ user.username }}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% else %}
+                    <li style="float: right;"><a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
     <div id="sidebar" class="sidebar">
-        <a href="{% url 'home' %}" class="home-link"><i class="fas fa-home"></i></a>
-        <ul>
-            <li><a href="{% url 'product_list' %}">Products</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'cart_detail' %}">Cart</a></li>
-                <li><a href="{% url 'order_confirmation' %}">Orders</a></li>
-                <li><a href="{% url 'review_list' %}">Reviews</a></li>
-            {% endif %}
-        </ul>
+        <div id="sidebar-content" class="sidebar-content">
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'product_list' %}"><i class="fas fa-box-open"></i> Products</a></li>
+                    <li><a href="#" class="categories-link"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="{% url 'cart_detail' %}"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="{% url 'order_confirmation' %}"><i class="fas fa-receipt"></i> Orders</a></li>
+                    <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="social-media">
+                        <a href="#"><i class="fas fa-share-alt"></i> Social Media</a>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'review_list' %}"><i class="fas fa-star"></i> Reviews</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}"><i class="fas fa-box-open"></i> Products</a></li>
+                    <li><a href="{% url 'login' %}" class="categories-link"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-receipt"></i> Orders</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="social-media">
+                        <a href="{% url 'login' %}"><i class="fas fa-share-alt"></i> Social Media</a>
+                    </li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-star"></i> Reviews</a></li>
+                {% endif %}
+            </ul>
+        </div>
         <div class="auth-links">
-            <a href="{% url 'signup' %}">Sign Up</a>
-            <a href="{% url 'login' %}">Login</a>
+            {% if not user.is_authenticated %}
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
     </div>
     <div id="main-content" class="main-content">
         <button id="sidebar-toggle-btn" class="open-btn" onclick="toggleSidebar()">
-            <img src="{% static 'images/bar.png' %}" alt="Menu Icon">
+            <img src="{% static 'images/sidebar.png' %}" alt="Menu Icon">
         </button>
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
+        <footer class="footer">
+            <ul>
+                <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> Blog</a></li>
+                <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
+                <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                <li><a href="#"><i class="fas fa-life-ring"></i> Support</a></li>
+                <li><a href="#"><i class="fas fa-comment"></i> Feedback</a></li>
+                <li><a href="#" class="about-us-link"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#" class="contact-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

@@ -12,17 +12,23 @@ body {
     top: 0;
     left: -250px;
     background-color: #111;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: left 0.5s;
     padding-top: 60px;
     z-index: 1000;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+.sidebar-content {
+    padding-bottom: 20px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 #sidebar {
@@ -31,19 +37,34 @@ body {
 
 .sidebar li {
     padding: 15px 20px;
+    top: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .sidebar a {
-    text-decoration: none;
-    font-size: 18px;
-    color: #ddd;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
+    display: block;
+    padding: 0.75rem 1rem;
     color: #fff;
-}
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .auth-links a {
+    padding: 0.75rem 1rem;
+    color: #ccc;
+    text-decoration: none;
+    border-bottom: none;
+    background-color: transparent;
+    transition: none;
+  }
+  
+  .sidebar .auth-links a:hover {
+    background-color: transparent;
+  }
 
 .auth-links {
     position: absolute;
@@ -97,11 +118,10 @@ body {
     transform: translateY(1px);
 }
 
-
 .home-link {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-top: 5px;
+    float: left;
+    margin-left: 30px;
     color: #ddd;
     font-size: 24px;
     text-decoration: none;
@@ -133,5 +153,217 @@ body {
     transition: margin-left 0.5s;
     padding: 16px;
     margin-left: 0;
+    margin-top: 60px;
+}
+
+
+
+
+.separator {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.sidebar-content {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #111;
+}
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 1rem;
+    z-index: 1001; 
+    height: 30PX;
+}
+
+.header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+.header nav ul li a:hover {
+    color: #555;
+}
+
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .footer ul li a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: #333;
+        }
+
+        .newsletter {
+            margin-top: 20px;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button:hover {
+            background-color: #555;
+        }
+.social-media .submenu {
+    display: none;
+    position: absolute; 
+    bottom: 100%; 
+    margin-bottom: 10px; 
+    padding: 0;
+    list-style: none;
+    background: white; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    z-index: 1000; 
+}
+
+.social-media:hover .submenu {
+    display: block;
+}
+
+.social-media .submenu li {
+    padding: 10px;
+}
+
+.social-media .submenu li:nth-child(1) a {
+    color: blue; 
+    background: #f0f0f0;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+.social-media .submenu li:nth-child(2) a {
+    color: red;
+    background: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+.social-media .submenu li:nth-child(3) a {
+    color: purple; 
+    background: #d0d0d0;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+
+
+.profile-link {
+    float: right;
+    margin-right: 20px;
+}
+
+.profile-pic {
+    display: flex;
+    align-items: center;
+}
+
+
+.profile-link .profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link .profile-pic img {
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-link  {
+    font-size: 16px; 
+    color: #333; 
+}
+
+.profile-name {
+    top: 30px;
+}
+
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc; 
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-pic.has-picture {
+    background-color: transparent;
+}
+
+.profile-pic.no-picture {
+    color: #fff;
 }
 
