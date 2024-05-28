@@ -1,206 +1,218 @@
-    .hero-section {
-        color: #002dc0;
-        text-align: center;
-        padding: 100px 0;
-        margin-left: 20px;
-        border-radius: 10px;
+.hero-section {
+    color: #002dc0;
+    text-align: center;
+    padding: 100px 0;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.hero-content .btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hero-content .btn:hover {
+    background-color: #555;
+}
+
+.featured-products {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+}
+
+.featured-products .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.featured-products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-item {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    margin: 10px;
+    text-align: center;
+}
+
+.featured-products-title {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+.product-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.product-item .price {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product-item .btn {
+    font-size: 1em;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    bottom: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.product-item .btn:hover {
+    background-color: #0056b3;
+}
+
+.newsletter-section {
+    background-color: #f8f9fa;
+    padding: 3em 1em;
+    text-align: center;
+    border-top: 2px solid #ddd;
+}
+
+.newsletter-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.newsletter-section p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    color: #666;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 0.75em 1em;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1 1 60%;
+    min-width: 200px;
+}
+
+.newsletter-form button {
+    padding: 0.75em 1.5em;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    flex: 1 1 30%;
+    min-width: 120px;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column;
     }
 
-    .hero-content h1 {
-        font-size: 3em;
-        margin-bottom: 20px;
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+        flex: 1 1 100%;
+        min-width: unset;
     }
+}
 
-    .hero-content p {
-        font-size: 1.2em;
-        margin-bottom: 40px;
-    }
 
-    .hero-content .btn {
-        font-size: 1.2em;
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-    }
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    padding: 0.75em 2em;
+    text-decoration: none;
+    border: 2px solid #0056b3;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    text-align: center;
+}
 
-    .hero-content .btn:hover {
-        background-color: #555;
-    }
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #003580);
+    color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 123, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
 
-    .featured-products {
-        padding: 60px 0;
-        background-color: #f8f8f8;
-    }
+.btn-primary:active {
+    background: linear-gradient(45deg, #004080, #002050);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+}
 
-    .featured-products .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-    }
-
-    .featured-products h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2em;
+@media (max-width: 1000px) {
+    .container {
+        width: 100%;
     }
 
     .product-grid {
         display: flex;
-        justify-content: space-between;
-        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .product-item {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        flex: 1;
+        width: 100%;
+        margin: 10px;
     }
-
-    .product-item img {
-        max-width: 100%;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .product-item h3 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .product-item .price {
-        font-size: 1.2em;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .product-item .btn {
-        font-size: 1em;
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-    }
-
-    .product-item .btn:hover {
-        background-color: #0056b3;
-    }
-
-    .newsletter-section {
-        background-color: #f8f9fa;
-        padding: 3em 1em;
-        text-align: center;
-        border-top: 2px solid #ddd;
-    }
-    
-    .newsletter-section h2 {
-        font-size: 2.5em;
-        margin-bottom: 0.5em;
-        color: #333;
-    }
-    
-    .newsletter-section p {
-        font-size: 1.2em;
-        margin-bottom: 1.5em;
-        color: #666;
-    }
-    
-    .newsletter-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1em;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    .newsletter-form input[type="email"] {
-        padding: 0.75em 1em;
-        font-size: 1.2em;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        flex: 1 1 60%;
-        min-width: 200px;
-    }
-    
-    .newsletter-form button {
-        padding: 0.75em 1.5em;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        flex: 1 1 30%;
-        min-width: 120px;
-        transition: background-color 0.3s ease;
-    }
-    
-    .newsletter-form button:hover {
-        background-color: #0056b3;
-    }
-    
-    @media (max-width: 768px) {
-        .newsletter-form {
-            flex-direction: column;
-        }
-    
-        .newsletter-form input[type="email"], .newsletter-form button {
-            flex: 1 1 100%;
-            min-width: unset;
-        }
-    }
-    
-
-    .btn-primary {
-        background: linear-gradient(45deg, #007bff, #0056b3);
-        color: white;
-        padding: 0.75em 2em;
-        text-decoration: none;
-        border: 2px solid #0056b3;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 1.2em;
-        font-weight: bold;
-        transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
-        display: inline-block;
-        text-align: center;
-    }
-    
-    .btn-primary:hover {
-        background: linear-gradient(45deg, #0056b3, #003580);
-        color: #fff;
-        box-shadow: 0 6px 10px rgba(0, 123, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-    }
-    
-    .btn-primary:active {
-        background: linear-gradient(45deg, #004080, #002050);
-        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-        transform: translateY(1px);
-    }
-    
-@media (max-width: 1000px) {
-  .container {
-    width: 100%;
-  }
-
-  .product-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .product-item {
-    width: 100%;
-    margin: 10px;
-  }
 }

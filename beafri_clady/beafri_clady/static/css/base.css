@@ -3,6 +3,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
 }
 
 .sidebar {
@@ -32,7 +34,7 @@ body {
 }
 
 #sidebar {
-    transition: left 0.5s; 
+    transition: left 0.5s;
 }
 
 .sidebar li {
@@ -40,6 +42,7 @@ body {
     top: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .sidebar a {
     display: block;
     padding: 0.75rem 1rem;
@@ -47,24 +50,24 @@ body {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s ease;
-  }
-  
-  .sidebar a:hover {
+}
+
+.sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .sidebar .auth-links a {
+}
+
+.sidebar .auth-links a {
     padding: 0.75rem 1rem;
     color: #ccc;
     text-decoration: none;
     border-bottom: none;
     background-color: transparent;
     transition: none;
-  }
-  
-  .sidebar .auth-links a:hover {
+}
+
+.sidebar .auth-links a:hover {
     background-color: transparent;
-  }
+}
 
 .auth-links {
     position: absolute;
@@ -82,7 +85,7 @@ body {
     font-weight: bold;
     text-decoration: none;
     border: 2px solid transparent;
-    border-radius: 25px;
+    border-radius: 10px;
     background: linear-gradient(45deg, #007bff, #0056b3);
     color: white;
     text-align: center;
@@ -186,6 +189,20 @@ body {
     scrollbar-color: #888 #111;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+
 
 
 .header {
@@ -195,7 +212,7 @@ body {
     width: 100%;
     background-color: #111;
     padding: 1rem;
-    z-index: 1001; 
+    z-index: 1001;
     height: 30PX;
 }
 
@@ -204,75 +221,86 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .header nav ul li {
     display: inline-block;
     margin-right: 20px;
 }
+
 .header nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 20px;
     transition: color 0.3s ease;
 }
+
 .header nav ul li a:hover {
     color: #555;
 }
 
 
-        .footer {
-            background-color: #f2f2f2;
-            padding: 20px;
-            text-align: center;
-        }
-        .footer ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .footer ul li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        .footer ul li a {
-            text-decoration: none;
-            color: #555;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-        .footer ul li a:hover {
-            color: #333;
-        }
+.footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
 
-        .newsletter {
-            margin-top: 20px;
-        }
-        .newsletter input[type="email"] {
-            padding: 10px;
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .newsletter button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .newsletter button:hover {
-            background-color: #555;
-        }
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #333;
+}
+
+.newsletter {
+    margin-top: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #555;
+}
+
 .social-media .submenu {
     display: none;
-    position: absolute; 
-    bottom: 100%; 
-    margin-bottom: 10px; 
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 10px;
     padding: 0;
     list-style: none;
-    background: white; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    z-index: 1000; 
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
 }
 
 .social-media:hover .submenu {
@@ -284,7 +312,7 @@ body {
 }
 
 .social-media .submenu li:nth-child(1) a {
-    color: blue; 
+    color: blue;
     background: #f0f0f0;
     text-decoration: none;
     display: block;
@@ -300,7 +328,7 @@ body {
 }
 
 .social-media .submenu li:nth-child(3) a {
-    color: purple; 
+    color: purple;
     background: #d0d0d0;
     text-decoration: none;
     display: block;
@@ -326,15 +354,15 @@ body {
 }
 
 .profile-link .profile-pic img {
-    width: 30px; 
+    width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.profile-link  {
-    font-size: 16px; 
-    color: #333; 
+.profile-link {
+    font-size: 16px;
+    color: #333;
 }
 
 .profile-name {
@@ -350,7 +378,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ccc; 
+    background-color: #ccc;
 }
 
 .profile-pic img {
@@ -366,4 +394,3 @@ body {
 .profile-pic.no-picture {
     color: #fff;
 }
-
