@@ -6,6 +6,10 @@
     border-radius: 10px;
 }
 
+.hero-section {
+    transition: background-image 1s ease-in-out;
+}
+
 .hero-content h1 {
     font-size: 3em;
     margin-bottom: 20px;
@@ -33,6 +37,8 @@
 .featured-products {
     padding: 60px 0;
     background-color: #f8f8f8;
+    border-radius: 10px;
+
 }
 
 .featured-products .container {

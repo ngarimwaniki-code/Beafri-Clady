@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div class="container mt-4">
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-picture-container text-center">
+                {% if profile.profile_picture %}
+                    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture img-fluid rounded-circle mb-3">
+                {% else %}
+                    <div class="default-profile-picture rounded-circle mb-3">
+                        <i class="fas fa-user"></i>
+                    </div>
+                {% endif %}
+                <div class="text-center">
+                    <label for="id_profile_picture" class="btn btn-sm btn-primary btn-upload mb-0"><i class="fas fa-cloud-upload-alt"></i></label>
+                    <input type="file" id="id_profile_picture" name="profile_picture" class="form-control-file d-none" accept="image/*">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h2 class="text-center">{{ user.get_full_name }}</h2>
+                <p class="email text-center">{{ user.email }}</p>
+                <hr>
+                <h3>About Me</h3>
+                <p><strong>Bio:</strong> {{ profile.bio }}</p>
+                <p><strong>Location:</strong> {{ profile.location }}</p>
+                <p><strong>Birth Date:</strong> {{ profile.birth_date }}</p>
+                <p><strong>Website:</strong> <a href="{{ profile.website }}">{{ profile.website }}</a></p>
+                <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+            </div>
+            <button id="edit-profile-btn" class="btn btn-primary mt-3">Edit Profile</button>
+        </div>
+        <div id="edit-profile-modal" class="edit-profile-modal">
+            <div class="edit-profile-content">
+                <span class="close">&times;</span>
+                <h3 class="mt-3">Edit Profile</h3>
+                <form method="post" enctype="multipart/form-data" class="profile-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_bio">Bio:</label>
+                        <textarea id="id_bio" name="bio" rows="3" class="form-control">{{ profile.bio }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_location">Location:</label>
+                        <input type="text" id="id_location" name="location" class="form-control" value="{{ profile.location }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_birth_date">Birth Date:</label>
+                        <input type="date" id="id_birth_date" name="birth_date" class="form-control" value="{{ profile.birth_date }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_website">Website:</label>
+                        <input type="url" id="id_website" name="website" class="form-control" value="{{ profile.website }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_phone_number">Phone Number:</label>
+                        <input type="text" id="id_phone_number" name="phone_number" class="form-control" value="{{ profile.phone_number }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   var modal = document.getElementById('edit-profile-modal');
+var btn = document.getElementById('edit-profile-btn');
+var span = document.querySelector('.close');
+
+btn.addEventListener('click', function() {
+    modal.style.display = 'block';
+});
+
+span.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+document.getElementById('id_profile_picture').addEventListener('change', function(event) {
+    var image = document.getElementById('profile-image');
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+        image.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+</script>
+
+{% endblock %}

@@ -56,5 +56,24 @@
         </div>
     </div>
 </section>
+<script>
+    var heroSection = document.getElementById('hero-section');
+    var isVideoPlaying = false;
+
+    function toggleBackground() {
+        if (isVideoPlaying) {
+            heroSection.style.background = "url('{% static 'images/beafri-small.jpg' %}') no-repeat center center/cover";
+            isVideoPlaying = false;
+        } else {
+            heroSection.style.background = "url('{% static 'images/beafri-clady.mp4' %}') no-repeat center center/cover";
+            heroSection.style.backgroundSize = "cover";
+            isVideoPlaying = true;
+        }
+    }
+
+    window.onload = function() {
+        toggleBackground();
+    };
+</script>
 
 {% endblock %}

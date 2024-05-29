@@ -9,12 +9,16 @@
     <script src="{% static 'js/base.js' %}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/heroicons@1.0.4/dist/heroicons.min.css" rel="stylesheet">
+    
 </head>
 <body>
     <header id="header" class="header">
         <nav>
+            <a href="{% url 'home' %}" class="logo">Beafri <span>Clady</span></a>
             <ul>
-                <li><a href="{% url 'home' %}" class="home-link"><i class="fas fa-home"></i></a></li>
+                <li><a href="{% url 'home' %}" class="home-link">
+                    <img src="{% static 'images/home-icon.png' %}" alt="Home" style="width: 24px; height: 24px;">
+                </a></li>
                 {% if user.is_authenticated %}
                     <li class="profile-link" style="margin-left: auto;">
                         <a href="{% url 'profile' %}">
@@ -26,20 +30,17 @@
                                         <i class="fas fa-user"></i>
                                     {% endif %}
                                 </div>
-                                <div class="profile-name">
-                                    {{ user.username }}
-                                </div>
+                                
                             </div>
                         </a>
                     </li>
                 {% else %}
-                    <li style="float: right;"><a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a></li>
                 {% endif %}
             </ul>
         </nav>
     </header>
     
-    <div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar" style="left: -250px;">
         <div id="sidebar-content" class="sidebar-content">
             <ul>
                 {% if user.is_authenticated %}
@@ -59,15 +60,10 @@
                     <li><a href="{% url 'review_list' %}"><i class="fas fa-star"></i> Reviews</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}"><i class="fas fa-box-open"></i> Products</a></li>
-                    <li><a href="{% url 'login' %}" class="categories-link"><i class="fas fa-list"></i> Categories</a></li>
-                    <li><a href="{% url 'login' %}"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                    <li><a href="{% url 'login' %}"><i class="fas fa-receipt"></i> Orders</a></li>
-                    <li><a href="{% url 'login' %}"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li class="social-media">
-                        <a href="{% url 'login' %}"><i class="fas fa-share-alt"></i> Social Media</a>
-                    </li>
-                    <li><a href="{% url 'login' %}"><i class="fas fa-star"></i> Reviews</a></li>
+                <div class="auth-links">
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
                 {% endif %}
             </ul>
         </div>
