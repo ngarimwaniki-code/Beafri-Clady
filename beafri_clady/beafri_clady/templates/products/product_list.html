@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<script src="{% static 'js/base.js' %}"></script>
+  <div class="container">
+    <h1>Product List</h1>
+    <div class="row">
+      {% for product in product_list %}
+        <div class="col-md-3">
+          <div class="product-card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h2><a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a></h2>
+            <p>{{ product.description|truncatewords:20 }}</p>
+            <p>Price: {{ product.price }}</p>
+            <p>Category: {{ product.category.name }}</p>
+            {% if product.available %}
+              <p>In Stock</p>
+            {% else %}
+              <p>Out of Stock</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

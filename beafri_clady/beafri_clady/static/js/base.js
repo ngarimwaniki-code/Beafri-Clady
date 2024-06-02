@@ -32,3 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', adjustSidebarHeight);
     document.getElementById('sidebar-toggle-btn').addEventListener('click', toggleSidebar);
 });
+
+
+$(document).ready(function() {
+    $('.product-card').hover(function() {
+      $(this).find('.btn').fadeIn();
+    }, function() {
+      $(this).find('.btn').fadeOut();
+    });
+  });
